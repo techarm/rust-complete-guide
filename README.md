@@ -4,15 +4,15 @@ Understand ownership, lifetimes, traits, generics, and much more through practic
 
 ## Baisc
 
-- struct
-- #[derive(Debug)]
-- {:?}, {:#?}
+- `struct`
+- `#[derive(Debug)]`
+- `{:?}`, `{:#?}`
 - arrays, vectors
-- mutable, immutable
+- immutable, mutable: use the `mut` keyword
 - impl struct (add a function to struct)
   - associated functions (Class method)
   - method, operates on a specific instance of a struct
-- implicit return
+- implicit `return`
 - crate == package
   - rust standard library
     - included with every project without any additional install
@@ -21,5 +21,5 @@ Understand ownership, lifetimes, traits, generics, and much more through practic
     - have to be installed into our project with `cargo add <name>`
     - create listing at: **crates.io**
     - doc also at: **docs.rs**
-- use external modules use the 'crate' keyword
-- use internal modules use the 'mod' keyword
+- use external modules use the `crate` keyword
+- use internal modules use the `mod` keyword
