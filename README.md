@@ -23,3 +23,18 @@ Understand ownership, lifetimes, traits, generics, and much more through practic
     - doc also at: **docs.rs**
 - use external modules use the `crate` keyword
 - use internal modules use the `mod` keyword
+
+### Ownership, Borrowing, Lifetimes
+
+1. (Ownership) Every value is 'owned' by a single variable, object, argument, etc at a time
+2. (Ownership) Reassinging the value to anther variable, passing it to a function, putting it into a vector, etc, `moves` the value. The old variable can't be used anymore!
+3. (Borrowing) You can crate many read-only references to a value that exist at the same time
+4. (Borrowing) You can't move a value while a ref to the value exists
+5. (Borrowing) You can make a writeable (mutable) reference to a value only if there are no read-only references currently in use. One mutable ref to a value can exist at a time
+6. (Borrowing) You can't mutate a value through the owner when any ref (mutable or immutable) to the value exists
+7. (Borrowing) Some types of values are copyied instead of moved (numbers, bools, chars, arrays/tuples with copyable elements)
+8. (Lifetimes) When a variable goes out of scope, the value owned by it dropped (cleaned up in memory)
+9. (Lifetimes)Values can't be dropped if there are still active references to it
+10. (Lifetimes)References to a value can't outlive the value they refer to
+11. These rules will dramatically change how you write code (compared to other languages)
+12. When in doubt, remember that Rsut wants to minimize unexpected updates to data
