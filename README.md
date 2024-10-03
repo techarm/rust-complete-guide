@@ -38,3 +38,10 @@ Understand ownership, lifetimes, traits, generics, and much more through practic
 10. (Lifetimes)References to a value can't outlive the value they refer to
 11. These rules will dramatically change how you write code (compared to other languages)
 12. When in doubt, remember that Rsut wants to minimize unexpected updates to data
+
+#### Borrowing
+
+- readonly reference: `&`
+- mutable reference: `&mut`
+  - mutable ref allow us to read or change a value without moving it
+- copy-able values: numbers, bools, chars, arrays/tuples with copyable elements
