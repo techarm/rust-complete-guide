@@ -8,6 +8,9 @@
     },
     {
       "path": "bank"
+    },
+    {
+      "path": "media"
     }
   ],
   "settings": {}

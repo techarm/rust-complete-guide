@@ -23,6 +23,8 @@ Understand ownership, lifetimes, traits, generics, and much more through practic
     - doc also at: **docs.rs**
 - use external modules use the `crate` keyword
 - use internal modules use the `mod` keyword
+- enum
+- if, match
 
 ### Ownership, Borrowing, Lifetimes
 
