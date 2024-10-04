@@ -60,3 +60,9 @@ Understand ownership, lifetimes, traits, generics, and much more through practic
 - mutable reference: `&mut`
   - mutable ref allow us to read or change a value without moving it
 - copy-able values: numbers, bools, chars, arrays/tuples with copyable elements
+
+### Module
+
+- Every file **and folder** makes its own separate module
+- You can't do deeply nested imports
+- You can to chain imports
