@@ -25,6 +25,19 @@ Understand ownership, lifetimes, traits, generics, and much more through practic
 - use internal modules use the `mod` keyword
 - enum
 - if, match
+- Option: Some, None
+  - `item.unwarp()`
+    - if 'item' is a Some, returns the value in the Some
+    - if 'item' is a None, panics!
+    - use for quick debugging or examples
+  - `item.expect("message")`
+    - if 'item' is a Some, returns the value in the Some
+    - if 'item' is a None, prints the provided debug message and panics!
+    - Use when we want to crash if there is no value
+  - `item.unwarp_or(some_object)`
+    - if 'item' is a Some, reutrns the value in Some
+    - if 'item' is a None, returns the provided default value
+    - Use when it makes sense to provide a fallback value
 
 ### Ownership, Borrowing, Lifetimes
 
