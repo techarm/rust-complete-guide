@@ -25,7 +25,7 @@ Understand ownership, lifetimes, traits, generics, and much more through practic
 - use internal modules use the `mod` keyword
 - enum
 - if, match
-- Option: Some, None
+- Option: `Some(value)`, `None`
   - `item.unwarp()`
     - if 'item' is a Some, returns the value in the Some
     - if 'item' is a None, panics!
@@ -38,6 +38,10 @@ Understand ownership, lifetimes, traits, generics, and much more through practic
     - if 'item' is a Some, reutrns the value in Some
     - if 'item' is a None, returns the provided default value
     - Use when it makes sense to provide a fallback value
+- Result: `Ok(value)`, `Err(error)`
+  - `Ok()` variant is used when something went well
+  - `Err()` variant used when something bad happend
+- tuple
 
 ### Ownership, Borrowing, Lifetimes
 
