@@ -70,3 +70,35 @@ Understand ownership, lifetimes, traits, generics, and much more through practic
 - Every file **and folder** makes its own separate module
 - You can't do deeply nested imports
 - You can to chain imports
+
+### String, &String, &str
+
+- String:
+  ```rust
+  let color = String::from("red");
+  ```
+  - Uses memory in: Stack and Heap
+  - Use anytime we want ownership of text
+  - Use anytime we want text that can grow or shrink
+- &String
+  ```rust
+  let color = String::from("red");
+  let color_ref = &color;
+  ```
+  - Uses memory in: Stack
+  - Rarely used!
+  - Rust will automatically turn &String into &str for you
+- &str
+  ```rust
+  let color = String::from("red");
+  let color_ref = color.as_str();
+  ```
+  - Uses memory in: Stack
+  - Use anytime you don't want to take ownershop of text
+  - Use anytime you want to refer to a **portion** of string owned by something else
+  - Refers directly to heap-allocated or data-allocated text
+
+#### Why is there &String and &str?
+
+- Reason #1: `&str` lets you refer to text in the data segment without a heap allocation
+- Reason #2: `&str` lets you 'slice' (take a portion) of text that is already on the heap
