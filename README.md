@@ -103,3 +103,62 @@ Understand ownership, lifetimes, traits, generics, and much more through practic
 
 - Reason #1: `&str` lets you refer to text in the data segment without a heap allocation
 - Reason #2: `&str` lets you 'slice' (take a portion) of text that is already on the heap
+
+## Iterators
+
+- Used to iterate over any kind of data structure
+- They are used behind the scenes when you write a for loop
+- Follow all the same rules of ownership, borrowing, lifetimes
+- Use the Option enum
+
+```rust
+    let colors = vec![
+        String::from("red"),
+        String::from("yellow"),
+        String::from("green"),
+    ];
+
+    let mut iter = colors.iter();
+```
+
+We usually don't call `next` on an iterator manually
+
+- Option1: Use a for loop. Automatically creates an iterator and calls `next` on it
+- Option2: Use iterator adaptors and consumers like `for_each`, `collect`, `map`, etc
+
+### Iterator
+
+- `iter()`: The iterator will give you a **read-only reference** to each element
+- `iter_mut()`: The iterator will give you a **mutable reference** to each element
+- `into_iter()`: The iterator give you **ownership** of each element, unless called on a mutable ref to a vector
+
+### Iterator adaptor
+
+Vec<String> -> Iterator -> adaptor (`map()`) -> consumers (`for_each()`)
+
+### Collect
+
+- Automatically judge based on the returned type
+
+  ```rust
+  fn to_uppercase(items: &[String]) -> Vec<String> {
+    items.iter().map(|el| el.to_uppercase()).collect()
+  }
+  ```
+
+- Manual setting type
+
+  ```rust
+  let result: Vec<String> = items.iter().map(|el| el.to_uppercase()).collect();
+  ```
+
+- Turbofish
+
+  ```rust
+  fn to_uppercase(items: &[String]) -> Vec<String> {
+      items
+          .iter()
+          .map(|el| el.to_uppercase())
+          .collect::<Vec<String>>()
+  }
+  ```
