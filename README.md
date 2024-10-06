@@ -41,6 +41,7 @@ Understand ownership, lifetimes, traits, generics, and much more through practic
 - Result: `Ok(value)`, `Err(error)`
   - `Ok()` variant is used when something went well
   - `Err()` variant used when something bad happend
+  - `?` operator
 - tuple
 
 ### Ownership, Borrowing, Lifetimes

@@ -1,4 +1,5 @@
 use std::fs;
+use std::io::Error;
 
 fn extract_errors(text: &str) -> Vec<&str> {
     let lines = text.split("\n");
@@ -13,8 +14,9 @@ fn extract_errors(text: &str) -> Vec<&str> {
     results
 }
 
-fn main() {
-    let text = fs::read_to_string("logs.txt").expect("file is not found");
+fn main() -> Result<(), Error> {
+    let text = fs::read_to_string("logs.txt")?;
     let error_logs = extract_errors(text.as_str());
-    println!("{:#?}", error_logs)
+    fs::write("error_logs.txt", error_logs.join("\n"))?;
+    Ok(())
 }
