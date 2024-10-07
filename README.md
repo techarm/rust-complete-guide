@@ -162,3 +162,26 @@ Vec<String> -> Iterator -> adaptor (`map()`) -> consumers (`for_each()`)
           .collect::<Vec<String>>()
   }
   ```
+
+## Lifetime annotations
+
+Help the compiler make sure refs wont outlive the value they refer to
+
+```rust
+fn next_lang<'a>(langs: &'a [String], current: &str) -> &'a str {
+    let mut is_found = false;
+    for lang in langs {
+        if is_found {
+            return lang;
+        }
+        if lang == current {
+            is_found = true;
+        }
+    }
+    langs.last().unwrap()
+}
+```
+
+- The returned ref must refer to either the first or second argument
+- Rust intentionally doesn't look at your function body to figure out if the ref is tied to the first or second argument
+- Rust wants a function signature to make it clear whether the returned ref relies on the first or second argument (or both)
