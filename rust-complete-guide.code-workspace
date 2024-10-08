@@ -20,6 +20,9 @@
     },
     {
       "path": "lifetimes"
+    },
+    {
+      "path": "generics"
     }
   ],
   "settings": {}
