@@ -185,3 +185,57 @@ fn next_lang<'a>(langs: &'a [String], current: &str) -> &'a str {
 - The returned ref must refer to either the first or second argument
 - Rust intentionally doesn't look at your function body to figure out if the ref is tied to the first or second argument
 - Rust wants a function signature to make it clear whether the returned ref relies on the first or second argument (or both)
+
+## Generics
+
+- trait bound: ToPrimitive
+
+install : `cargo add num-traits`
+
+```rust
+use num_traits::ToPrimitive;
+
+fn main() {
+    let a: i32 = 3;
+    let b: f64 = 4.0;
+    println!("{}", calc(a, b))
+}
+
+fn calc<T: ToPrimitive, U: ToPrimitive>(a: T, b: U) -> f64 {
+    let a_f64 = a.to_f64().unwrap();
+    let b_f64 = b.to_f64().unwrap();
+    (a_f64.powi(2) + b_f64.powi(2)).sqrt()
+}
+```
+
+## Trait
+
+- A trait is a set of methods
+- It can contain **abstract methods** which don't have an implementation
+- It can contain **default methods**, which have an implemention
+
+```rust
+trait Vehicle {
+  // abstract method
+  fn start(&self);
+
+  // default method
+  fn stop(&stop) {
+    println!("Stopped");
+  }
+}
+```
+
+- A struct/enum/primitive can **implement** a trait
+- The implementor has to provide an implementation for all of the **abstract methods**
+- The implementor can **optionally** override the default methods
+
+```rust
+struct Car {};
+
+impl Vehicle for Car {
+  fn start(&self) {
+    println("Start");
+  }
+}
+```
